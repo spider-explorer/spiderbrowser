@@ -7,7 +7,9 @@ find .  -maxdepth 2 -iname *.h -o -iname *.cpp | xargs uncrustify -l CPP --repla
 ts=`date "+%Y.%m.%d.%H.%M.%S"`
 UNAME=`uname`
 mkdir -p upload.tmp/spider-release
-7z a -tzip upload.tmp/spider-release/spiderbrowser-v$ts.zip *-static.exe *-static.dll scoop-sw-list.ini scoop-bucket-map.json cmd temp -x!temp/*
+cd binary
+7z a -tzip $cwd/upload.tmp/spider-release/spiderbrowser-v$ts.zip *
+cd $cwd
 sha256sum upload.tmp/spider-release/spiderbrowser-v$ts.zip
 sum1=`sha256sum upload.tmp/spider-release/spiderbrowser-v$ts.zip | awk '{print $1}'`
 #sum1=`sha256-x86_64-static.exe upload.tmp/spider-release/spiderbrowser-v$ts.zip`

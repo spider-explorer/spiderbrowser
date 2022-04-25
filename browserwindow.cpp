@@ -481,6 +481,7 @@ void BrowserWindow::handleFindActionTriggered()
 
 void BrowserWindow::closeEvent(QCloseEvent *event)
 {
+#if 0x0
     if (m_tabWidget->count() > 1) {
         int ret = QMessageBox::warning(this, tr("Confirm close"),
                                        tr("Are you sure you want to close the window ?\n"
@@ -491,6 +492,7 @@ void BrowserWindow::closeEvent(QCloseEvent *event)
             return;
         }
     }
+#endif
     event->accept();
     deleteLater();
 }

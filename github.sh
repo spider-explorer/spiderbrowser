@@ -2,8 +2,6 @@
 set -e
 cwd=`pwd`
 rm -rf *.tmp
-rm -rf common
-cp -rp ~/qt/common .
 find .  -maxdepth 2 -iname *.h -o -iname *.cpp | xargs uncrustify -l CPP --replace --no-backup
 #astyle --recursive --ascii --style=allman --suffix=none *.java,*.c,*.cpp,*.cxx,*.h,*.hpp,*.hxx | sed -e "/Unchanged  /d"
 ts=`date "+%Y.%m.%d.%H.%M.%S"`
